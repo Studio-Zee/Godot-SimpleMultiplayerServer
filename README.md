@@ -27,11 +27,11 @@ Designed for fast local testing, mobile-first workflows, and public distribution
 
 Install Termux from Google Play Store:
 
-[Termux on Google Play](https://play.google.com/store/apps/details?id=com.termux&utm_source=chatgpt.com)
+[Termux on Google Play](https://play.google.com/store/apps/details?id=com.termux)
 
 Or use the official release channel:
 
-[Termux GitHub Releases](https://github.com/termux/termux-app/releases?utm_source=chatgpt.com)
+[Termux GitHub Releases](https://github.com/termux/termux-app/releases)
 
 GitHub release is recommended for the latest updates and package availability.
 
@@ -347,11 +347,11 @@ Projetado para testes locais rápidos, fluxo mobile-first e distribuição públ
 
 Instale o Termux pela Google Play Store:
 
-[Termux on Google Play](https://play.google.com/store/apps/details?id=com.termux&utm)
+[Termux on Google Play](https://play.google.com/store/apps/details?id=com.termux)
 
 Ou use o canal oficial de releases:
 
-[Termux GitHub Releases](https://github.com/termux/termux-app/releases?utm_)
+[Termux GitHub Releases](https://github.com/termux/termux-app/releases)
 
 Recomendação: o GitHub release é preferível para receber atualizações mais recentes e melhor disponibilidade de pacotes.
 
@@ -507,7 +507,7 @@ Windows, Linux e macOS são suportados.
 
 Instale o Node.js no site oficial:
 
-[Node.js Official Website](https://nodejs.org?utm_source=chatgpt.com)
+[Node.js Official Website](https://nodejs.org)
 
 Depois instale as dependências e execute o servidor:
 
