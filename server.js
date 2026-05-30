@@ -11,7 +11,7 @@ const wss = new WebSocket.Server({ host: "0.0.0.0", port: 9090 });
 
 // [PT-BR] Mensagem de inicialização exibida quando o servidor entra em estado de escuta
 // [EN] Startup message shown when the server enters listening mode
-console.log("Servidor WebSocket rodando na porta 9090. Aguardando jogadores...");
+console.log("Servidor WebSocket rodando na porta 9090. Aguardando jogadores... | WebSocket server running on port 9090. Waiting for players...");
 
 // [PT-BR] Registro em memória das salas ativas e de seus respectivos jogadores
 // [EN] In-memory registry of active rooms and their associated players
@@ -86,7 +86,7 @@ wss.on('connection', (ws) => {
 
                 // [PT-BR] Log operacional para auditoria básica do fluxo de criação de sala
                 // [EN] Operational log for basic auditing of the room creation flow
-                console.log(`[+] Sala ${codigo} criada por ${ws.uuid}. (Máx: ${limite})`);
+                console.log(`[+] Sala ${codigo} criada por ${ws.uuid}. (Máx: ${limite}) | Room ${codigo} created by ${ws.uuid}. (Max: ${limite})`);
 
                 // [PT-BR] Resposta de confirmação da sala criada, incluindo a condição de host
                 // [EN] Confirmation response for the created room, including host status
@@ -144,7 +144,7 @@ wss.on('connection', (ws) => {
 
                 // [PT-BR] Log de entrada útil para rastreamento de sessão e depuração operacional
                 // [EN] Join log useful for session tracing and operational debugging
-                console.log(`[>] Jogador ${ws.uuid} entrou na sala ${salaCode}`);
+                console.log(`[>] Jogador ${ws.uuid} entrou na sala ${salaCode} | Player ${ws.uuid} joined room ${salaCode}`);
 
                 // [PT-BR] Confirma ao cliente que ele entrou na sala e que não é o host
                 // [EN] Confirms to the client that they joined the room and are not the host
@@ -195,7 +195,7 @@ wss.on('connection', (ws) => {
                         salas[ws.room].started = true;
                         // [PT-BR] Log de auditoria para o disparo do estado inicial da partida
                         // [EN] Audit log for the dispatch of the initial match state
-                        console.log(`[!] Partida iniciada pelo Host na sala ${ws.room}`);
+                        console.log(`[!] Partida iniciada pelo Host na sala ${ws.room} | Match started by the Host in room ${ws.room}`);
 
                         // [PT-BR] Broadcast de controle para que todos os clientes transitem para o estado de jogo
                         // [EN] Control broadcast so all clients transition into the gameplay state
@@ -231,7 +231,7 @@ wss.on('connection', (ws) => {
         if (ws.room && salas[ws.room]) {
             // [PT-BR] Log de desconexão para rastreamento do ciclo de vida do jogador
             // [EN] Disconnect log for tracking the player's lifecycle
-            console.log(`[<] Jogador ${ws.uuid} desconectou da sala ${ws.room}`);
+            console.log(`[<] Jogador ${ws.uuid} desconectou da sala ${ws.room} | Player ${ws.uuid} disconnected from room ${ws.room}`);
             // [PT-BR] Remove o socket do conjunto de jogadores ativos da sala
             // [EN] Removes the socket from the room's active player set
             delete salas[ws.room].jogadores[ws.uuid];
@@ -247,7 +247,7 @@ wss.on('connection', (ws) => {
             // [EN] Releases the room from memory when there are no more connected players
             if (Object.keys(salas[ws.room].jogadores).length === 0) {
                 delete salas[ws.room];
-                console.log(`[-] Sala ${ws.room} encerrada e removida da memória.`);
+                console.log(`[-] Sala ${ws.room} encerrada e removida da memória. | Room ${ws.room} closed and removed from memory.`);
             }
         }
     });
